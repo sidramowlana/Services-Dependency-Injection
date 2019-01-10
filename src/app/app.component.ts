@@ -6,5 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ServicesAndDependencyInjection';
+  accounts=[
+    {
+      name: 'Master Account',
+      status: 'active'
+    },
+    {
+      name: 'Tester Account',
+      status: 'inactive'
+    },
+    {
+      name: 'Hidden Account',
+      status: 'unknown'
+    }
+  ];
+
+  onAccountAdded(newAccount: {name:string, status:string})
+  {
+    this.accounts.push(newAccount);
+  }
+  
+  onStatusChange(updateInfo:{id:number,newStatus:string})
+  {
+    this.accounts[updateInfo.id].status=updateInfo.newStatus;
+  }
 }

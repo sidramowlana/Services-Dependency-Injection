@@ -1,9 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrls: ['./account.component.css'],
+  providers: [LoggingService]
 })
 export class AccountComponent{
 
@@ -12,8 +14,10 @@ export class AccountComponent{
  @Output() statusChanged = new EventEmitter<{id: number, newStatus: string}>();
 
 
+ constructor(private loggingServices: LoggingService){}
   onSetTo(status: string)
   {
     this.statusChanged.emit({id:this.id, newStatus: status});
+    this.loggingServices.logStatusChange(status);
   }
 }

@@ -5,13 +5,14 @@ import { AccountsService } from '../accounts.service';
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
-  styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  styleUrls: ['./new-account.component.css']
+  // providers: [LoggingService]
 })
 export class NewAccountComponent implements OnInit {
 
   // @Output() accountAdded = new EventEmitter<{name:string,status:string}>();
-  constructor(private loggingService:LoggingService, private accountsService:AccountsService) { }
+  constructor(private loggingService:LoggingService,
+              private accountsService:AccountsService) { }
 
   ngOnInit() {
   }
@@ -24,7 +25,7 @@ export class NewAccountComponent implements OnInit {
     //   }
     // );
     this.accountsService.createAccount(accountName,accountStatus);
-    this.loggingService.logStatusChange(accountStatus);
+    // this.loggingService.logStatusChange(accountStatus);
   }
 
 }

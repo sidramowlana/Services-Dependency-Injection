@@ -10,7 +10,8 @@ import { AccountsService } from './accounts.service';
 export class AppComponent implements OnInit{
   
   accounts:{name:string,status:string}[]=[];
- 
+
+  //declaring in constructor and initializing it in the ngOnInit method is a good practice..
   constructor(private accountsService:AccountsService){}
  
   ngOnInit()
